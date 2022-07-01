@@ -1,0 +1,406 @@
+@import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    overflow-x: hidden;
+}
+.container{
+    position: relative; /* cha*/
+    width: 100%;
+    
+}
+.navigation {
+    position: fixed;/* vị trí cố định */
+    width: 300px;
+    height: 100%;
+    overflow: hidden;/* ẩn phần thừa  */
+    transition: 0.5s;
+    background: #003147;
+}
+.navigation.active {
+    width: 60px;
+}
+.navigation ul{
+    position: absolute;/* con */
+    top: 0;
+    left: 0;
+    width: 100%;
+
+}
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+}
+.navigation ul li .fa-apple {
+     font-size: 24px;
+}
+.navigation ul li a {
+    text-decoration: none;
+    position: relative;
+    color: #fff;
+    display: block;
+    display: flex;
+    width: 100%;
+}
+.navigation ul li:hover{
+    background:  #03a9f4;
+}
+.navigation ul li:nth-child(1){
+    margin-bottom: 20px;
+}
+.navigation ul li:nth-child(1):hover {
+    background: transparent; /* làm cho màu nền bị mất */
+}
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.navigation ul li a .icon .fa{
+    font-size: 24px;
+}
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+
+.main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: #f5f5f5;
+    transition: 0.5s;
+}
+
+.main.active {
+    width: calc(100% - 60px);
+    left: 60px;
+    background: #f1c572;
+}
+.main .topbar {
+    width: 100%;
+    background-color: #fff;
+    height: 60px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user {
+    position: relative;
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    margin-top: 8px;
+    cursor: pointer;
+    overflow: hidden; /* Thừa thì bỏ  */
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+.user img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.toggle { /* onclick dùng để điều khiển nhiều hàm  */
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.toggle::before{
+    content: '\f0c9';
+    font-family: fontAwesome;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    font-size: 24px;
+    text-align: center;
+    color: #111;
+}
+
+.search {
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+.search label {
+    position: relative;
+    width: 100%;
+}
+
+.search label input {
+    width: 100%;
+    height: 40px;
+    border-radius: 25px;
+    padding: 5px 28px;
+    outline: none;
+    border: 1px solid rgba(0 , 0, 0, 0.2);
+}
+.search label .fa-solid{
+    position:absolute;
+    top: 5px;
+    left: 12px;
+}
+/* cardBox */
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid; /* bố trí các phần tử chứa bên trong thành dạng lưới */
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px;
+}
+
+.cardBox .card {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.cardBox .card:hover {
+    background: lightblue;
+}
+
+
+.cardBox .card .numbers{
+    position: relative;
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.cardBox .card .cardName {
+    color: #999;
+}
+
+.cardBox .card .iconBox {
+    font-size: 2.2em;
+    color:#03a9f4
+}
+
+
+.details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid; /* bố trí các phần tử chứa bên trong thành dạng lưới */
+    grid-template-columns: repeat(2,1fr);
+    padding-top: 0;
+    grid-gap: 20px;
+}
+/* recntOrders */
+.details .recentOrders {
+    position: relative;
+    /* display: grid; */
+    background: #fff;
+    padding: 20px;
+    min-height: 500px;
+    cursor: pointer;
+}
+
+.cardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+}
+
+.cardHeader h2{
+    font-weight: 600;
+}
+.details table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.details table thead td {
+    font-weight: 600; 
+    
+}
+.details  table tr {
+    border-bottom: 1px solid rgba(0 , 0, 0, 0.1);
+    
+}
+.details .recentOrders table tbody tr:hover {
+    background: #03a9f4;
+    color: #fff;
+}
+.details .recentOrders table tbody tr:-child {
+    border-bottom: none;
+}
+
+.details  table tr td {
+    padding: 9px 5px;
+}
+
+.details .recentOrders table thead tr td:last-child,
+.details .recentOrders table tbody tr td:last-child {
+    text-align: right;
+}
+
+.details .recentOrders table thead tr td:nth-child(2),
+.details .recentOrders table tbody tr td:nth-child(2) {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.details .recentOrders table thead tr td:nth-child(3),
+.details .recentOrders table tbody tr td:nth-child(3) {
+    text-align: center;
+}
+
+/* recntCustomer */
+.details .recentCustomers {
+    position: relative;
+    /* display: grid; */
+    background: #fff;
+    padding: 20px;
+    min-height: 500px;
+    cursor: pointer;
+}
+.details .recentCustomers table tbody tr:hover {
+    background: #03a9f4;
+    color: #fff;
+}
+
+.details .recentCustomers table thead tr td:last-child,
+.details .recentCustomers table tbody tr td:last-child {
+    text-align: left;
+    padding-left: 30px;
+}
+
+.details .recentCustomers table thead tr td:nth-child(2),
+.details .recentCustomers table tbody tr td:nth-child(2) {
+    text-align: left;
+    padding-left: 50px;
+}
+
+.status {
+    position: relative;
+    padding: 2px 4px;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.delivered {
+    background: #7fff00;
+}
+.pending {
+    background: #e2c028;
+}
+.return {
+    background: #ec2d2d;
+}
+.progress {
+    background: #f46f03;
+}
+.btn{
+    text-decoration: none;
+    position: relative;
+    padding: 5px 10px;
+    background: #03a9f4;
+    border-radius: 5px ;
+}
+
+
+@media (max-width:   992px) {
+    .navigation {
+        left: -300px;
+    }
+    .navigation.active {
+        left: 0;
+        width: 100%;
+    }
+    .main {
+        width: 100%;
+        left: 0;
+    }
+    .main.active {
+        width: calc(100% - 300px);
+        left: 300px;
+    }
+    .cardBox {
+        grid-template-columns: repeat(2,1fr);
+    }
+    .details {
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .details {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .cardBox {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .cardHeader h2 {
+        font-weight: 600;
+        font-size: 18px;
+    }
+    .navigation.active {
+        width: 100%;
+        left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardBox {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .details .recentOrders table {
+        width: 600px; 
+    }
+    .details .recentOrders {
+        overflow-x: auto;
+    }
+    .navigation {
+        width: 100%;
+        left: -100;
+        z-index: 1000;
+    }
+    .navigation.active {
+        width: 100%;
+        left: 0;
+    }
+    .toggle.active {
+        position: fixed;
+        z-index: 10000;
+        right: 0;
+        left: initial;
+    }
+
+    .toggle.active::before {
+        color: #fff;
+    }
+    .main,
+    .main.active {
+        width: 100%;
+        left: 0;
+    }
+}
